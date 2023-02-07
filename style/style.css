@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg);
+}
+
+section {
+    padding: 2rem 7%;
+}
+
+.heading {
+    margin-top: 40px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(../img/home.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content {
+    max-width: 60rem;
+}
+
+.home .content h3 {
+    font-size: 6rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.home .content p {
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #eee;
+}
+
+.general-container {
+    display: flex;
+    justify-content: center;
+}
+
+.product_container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 1000px;
+    transform-style: preserve-3d;
+}
+
+.product_box {
+    position: relative;
+    width: 280px;
+    height: 370px;
+    margin: 25px;
+    background: #232323;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+}
+
+.product_box_text {
+    position: absolute;
+    display: none;
+    top: 12%;
+    left: 60px;
+    font-weight: 700;
+    color: #ffffff;
+    font-style: italic;
+}
+
+.product_box_name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    transform-style: preserve-3d;
+    transform: translate3d(0, 0, 140px);
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 10;
+}
+
+.product_box:hover .product_box_name {
+    top: 60px;
+    opacity: 1;
+}
+
+.product_box_info {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%, 0, 150px);
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    background: rgb(255, 255, 255);
+    padding: 8px 22px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 10;
+}
+
+.product_box:hover .product_box_info {
+    transform: translate3d(-50%, -50%, 150px);
+    bottom: 32px;
+    opacity: 1;
+}
+
+.product_box_circle {
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    transition: 0.5s;
+    background: #fff;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%, -50%, 0px);
+    z-index: 10;
+    opacity: 0.7;
+}
+
+.product_box:hover .product_bo_circle {
+    opacity: 1;
+}
+
+.product_box_product {
+    width: 220px;
+    position: absolute;
+    top: 52%;
+    left: 49%;
+    max-width: 300px;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%, -50%, 10px) rotate(6deg);
+    z-index: 10;
+}
+
+.product_box:hover .product_box_product {
+    transform: translate3d(-54%, -50%, 80px) rotate(-16deg);
+    width: 280px
+}
