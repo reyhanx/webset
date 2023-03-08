@@ -9,6 +9,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
 $stmt = $conn->prepare("SELECT * FROM product WHERE id = ?");
 $stmt->execute([$id]);
 
+// $_SESSION['cart'] = [];
+if (isset($_GET['action']) && $_GET['action']=='addToCart') {
+    if (isset($_SESSION['cart'][$_GET['id']])) {
+        $_SESSION['cart'][$_GET['id']]++;
+
+    } 
+    else {
+        $_SESSION['cart'][$_GET['id']] = 1;
+    }
+}
+
+
+
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $product = $stmt->fetch();
 ?>
@@ -19,5 +32,6 @@ $product = $stmt->fetch();
     <p><?php echo $product['price'] ?> </p>
     <a href="/index.php?page=edit&id=<?php echo $id ?>">EDIT</a>
     <a href="/index.php?page=detail&id=<?php echo $id ?>&action=delete">DELETE</a>
+    <a href="/index.php?page=detail&id=<?php echo $id ?>&action=addToCart">ADD TO CART</a>
     <a href="/index.php">BACK</a>
 </div>

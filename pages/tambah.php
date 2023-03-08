@@ -12,6 +12,8 @@ if (isset($_POST['submit'])) {
     move_uploaded_file($_FILES['image']['tmp_name'], $filename);
     $stmt = $conn->prepare("UPDATE product SET image = ? WHERE id = ?");
     $stmt->execute([$filename, $id]);
+
+    header('Location: /index.php');
 }
 ?>
 

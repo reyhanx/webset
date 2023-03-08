@@ -2,20 +2,27 @@
 $conn = connect();
 $stmt = $conn->prepare("SELECT * FROM product");
 $stmt->execute();
+
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $product = $stmt->fetchAll();
 ?>
 
- <!-- Landing Page -->
- <section class="home" id="home">
-        <div class="content">
-            <h3>PlayStation 5 Console</h3>
-            <p>Experience an all-new generation of incredible PlayStation games. PS5 consoles are currently in stock.</p>
-        </div>
-        <div>
-            <img src="img/ps5.png" alt="">
-        </div>
-    </section>
+<!-- Landing Page -->
+<section class="home" id="home">
+    <div class="content">
+        <h3>PlayStation 5 Console</h3>
+        <p>Experience an all-new generation of incredible PlayStation games. PS5 consoles are currently in stock.</p>
+    </div>
+    <div>
+        <img src="img/ps5.png" alt="">
+    </div>
+</section>
+
+
+<div class="button">
+    <a href="index.php?page=tambah" class="btn btn-primary">tambah</a>
+    <a href="index.php?page=cart" class="btn btn-primary">cart</a>
+</div>
 
 <!-- product -->
 <section class="TopProductt">
@@ -34,7 +41,3 @@ $product = $stmt->fetchAll();
 
             <?php endforeach; ?>
 </section>
-
-<div class="row">
-    <a href="index.php?page=tambah" class="btn btn-primary">tambah</a>
-</div>

@@ -1,5 +1,6 @@
 <?php
 $page = isset($_GET['page']) ? $_GET['page'] : '';
+session_start();
 include_once "pages/koneksi.php";
 ?>
 
@@ -73,6 +74,10 @@ include_once "pages/koneksi.php";
             
             case 'edit' :
             include "pages/edit.php";
+            break;
+            
+            case 'cart' :
+            include "pages/keranjang.php";
             break;
             
             default:
