@@ -9,21 +9,29 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
 $stmt = $conn->prepare("SELECT * FROM product WHERE id = ?");
 $stmt->execute([$id]);
 
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$product = $stmt->fetch();
+
 // $_SESSION['cart'] = [];
 if (isset($_GET['action']) && $_GET['action']=='addToCart') {
-    if (isset($_SESSION['cart'][$_GET['id']])) {
-        $_SESSION['cart'][$_GET['id']]++;
-
-    } 
-    else {
-        $_SESSION['cart'][$_GET['id']] = 1;
-    }
+    $_SESSION['cart'][] = [
+        'id' => $product['id'],
+        'name' => $product['nama'],
+        'qty' => '1',
+        'image' => $product['image'],
+        'price' => $product['price']
+    ];
+   
+    // if (isset($_SESSION['cart'][$_GET['id']])) {
+    //     $_SESSION['cart'][$_GET['id']]++;
+    // } 
+    // else {
+    //     $_SESSION['cart'][$_GET['id']] = 1;
+    // }
 }
 
 
 
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-$product = $stmt->fetch();
 ?>
 <div class="container">
 

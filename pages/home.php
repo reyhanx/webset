@@ -30,7 +30,7 @@ $product = $stmt->fetchAll();
     <div class="general-container">
         <div class="product_container">
 
-            <?php foreach ($product as $product) : ?>
+            <?php foreach ($product as $k => $product) : ?>
 
                 <div class="product_box" id="product">
                     <h2 class="product_box_name"> <?php echo $product['nama'] ?> </h2>
