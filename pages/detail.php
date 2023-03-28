@@ -13,26 +13,32 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $product = $stmt->fetch();
 
 // $_SESSION['cart'] = [];
+
 if (isset($_GET['action']) && $_GET['action']=='addToCart') {
-    $_SESSION['cart'][] = [
-        'id' => $product['id'],
-        'name' => $product['nama'],
-        'qty' => '1',
-        'image' => $product['image'],
-        'price' => $product['price']
-    ];
-   
-    // if (isset($_SESSION['cart'][$_GET['id']])) {
-    //     $_SESSION['cart'][$_GET['id']]++;
-    // } 
-    // else {
-    //     $_SESSION['cart'][$_GET['id']] = 1;
-    // }
+    $found = false;
+    foreach ($_SESSION['cart'] as $key => $cart) {
+        if ($cart['id'] == $product['id']) {
+            $cart['qty']++;
+            $_SESSION['cart'][$key] = $cart;
+            $found = true;
+        }
+    }
+    if ($found == false) {
+        $_SESSION['cart'][] = [
+            
+            'id' => $product['id'],
+            'name' => $product['nama'],
+            'qty' => '1',
+            'image' => $product['image'],
+            'price' => $product['price']
+        ];
+
+    }
+
 }
-
-
-
 ?>
+
+
 <div class="container">
 
     <h2><?php echo $product['nama'] ?> </h2>

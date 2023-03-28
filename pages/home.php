@@ -7,6 +7,8 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $product = $stmt->fetchAll();
 ?>
 
+
+
 <!-- Landing Page -->
 <section class="home" id="home">
     <div class="content">
@@ -23,6 +25,8 @@ $product = $stmt->fetchAll();
     <a href="index.php?page=tambah" class="btn btn-primary">tambah</a>
     <a href="index.php?page=cart" class="btn btn-primary">cart</a>
 </div>
+
+
 
 <!-- product -->
 <section class="TopProductt">

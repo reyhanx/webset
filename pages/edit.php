@@ -11,6 +11,8 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $product = $stmt->fetch();
 ?>
 
+
+
 <div class="container">
 
     <form action="/index.php?page=edit&id=<?php echo $id ?>" method="post" class="d-flex flex-column gap-2">
@@ -20,7 +22,7 @@ $product = $stmt->fetch();
         </div>
         <div class="form-group">
             <label for="Stock">Stock</label>
-            <input type="text" name="stock" id="stock" value="<?php echo $product['stock'] ?>" class="form-control">
+            <input type="number" name="stock" id="stock" value="<?php echo $product['stock'] ?>" class="form-control">
         </div>
         <div class="form-group">
             <label for="Image">Image</label>
@@ -28,7 +30,7 @@ $product = $stmt->fetch();
         </div>
         <div class="form-group">
             <label for="Price">Price</label>
-            <input type="text" name="price" id="price" value="<?php echo $product['price'] ?>" class="form-control">
+            <input type="number" name="price" id="price" value="<?php echo $product['price'] ?>" class="form-control">
         </div>
         <input type="submit" value="submit" name="submit" class="btn btn-primary">
 

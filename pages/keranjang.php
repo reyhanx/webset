@@ -11,10 +11,10 @@
         // save to database
 
         $today = date("Y-m-d");
+        $query = "INSERT INTO transaction(date, userId) VALUES (?, ?);";
         $conn = connect();
-        $query = "INSERT INTO transaction(date) VALUES (?);";
         $stmt = $conn->prepare($query);
-        $stmt->execute([$today]);
+        $stmt->execute([$today, $_SESSION['userId']]);
 
 
         // save transaction_products
@@ -24,15 +24,21 @@
             $stmt = $conn->prepare($query);
             $stmt->execute([$id, $cart['id'], $cart['qty'], $cart['price']]);
         }
+        $id = $conn->lastInsertId();
 
-        unset ($_SESSION['cart']);
+         unset ($_SESSION['cart']);
     }
 
     
 ?>
+
+
 
 <pre>
     <?php  print_r($_SESSION['cart']); ?>
 </pre>
 
 <a href="index.php?page=cart&action=checkout" class="btn btn-primary">Checkout</a>
+
+
+
